@@ -3,23 +3,18 @@
 
 bool ledOn = true;
 
-void timerCallback();
-
 void setup()
 {
     Serial.begin(9600);
-    startTask(1000, &timerCallback);
+    startTask(500);
 }
 
 void loop()
 {
-    Serial.println("Loop");
-    delay(1000);
-    // timerCallback();
-}
-
-void timerCallback()
-{
-    ledOn = !ledOn;
-    digitalWrite(LEDR, ledOn? HIGH : LOW);
+    if (isTaskEvent())
+    {
+        Serial.println("Task event");
+        ledOn = !ledOn;
+        digitalWrite(LEDR, ledOn ? HIGH : LOW);
+    }
 }
