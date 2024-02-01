@@ -4,7 +4,6 @@
 
 NRF_TIMER_Type *timer4 = NRF_TIMER4;
 
-void (*timer4Callback)();
 uint32_t timer4Time = 0;
 uint32_t timer4CurrentTime = 0;
 
